@@ -1,0 +1,24 @@
+function init() {
+    var name = "Mozilla"; // name is a local variable created by init
+    function displayName() {
+      // displayName() is the inner function, that forms the closure
+      console.log(name); // use variable declared in the parent function
+    }
+
+    displayName();
+  }
+  init();
+
+  if (Math.random() > 0.5) {
+    var x = 1;
+  } else {
+    var x = 2;
+  }
+  console.log(x);
+
+  if (Math.random() > 0.5) {
+    const y = 1;
+  } else {
+    const y = 2;
+  }
+//   console.log(y); // ReferenceError: x is not defined
