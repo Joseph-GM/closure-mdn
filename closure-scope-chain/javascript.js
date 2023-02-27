@@ -1,3 +1,7 @@
+// import { getX, setX } from "./myModule.js";
+import { getX } from "./closureCreator.js";
+import { setX } from "./myModule.js";
+
 // // global scope
 // const e = 10;
 // function sum(a) {
@@ -35,4 +39,27 @@ const sum3 = sum2(2);
 const sum4 = sum3(3);
 const result = sum4(4);
 console.log(result); // 20
+
+// Black Scope
+
+function outer() {
+  const x = 5;
+  if (Math.random() > 0.5) {
+    const y = 6;
+    return () => console.log(x, y);
+  } else {
+    const y = 7;
+    return () => console.log(x, y);
+  }
+}
+
+outer()(); // Logs 5 6
+
+// Module
+// import { getX, setX } from "./myModule.js";
+
+console.log(getX()); // 5
+setX(6);
+console.log(getX()); // 6
+
 
